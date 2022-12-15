@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-/** The GroupAdmin class contains within it the database of states (UdoableStringBuilder)
+/** The GroupAdmin (observable) class contains within it the database of states (UdoableStringBuilder)
  * and a database of clients (members) who receive updates on any changes made to the database.
  *@author Naor Tzadok & Nitai Levy*/
 public class GroupAdmin implements Sender{

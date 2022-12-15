@@ -4,8 +4,8 @@ import java.util.ArrayList;
  * and a database of clients (members) who receive updates on any changes made to the database.
  *@author Naor Tzadok & Nitai Levy*/
 public class GroupAdmin implements Sender{
-    private ArrayList<Member> members = new ArrayList<>();
-    private UndoableStringBuilder usbState = new UndoableStringBuilder();
+    private final ArrayList<Member> members = new ArrayList<>();
+    private final UndoableStringBuilder usbState = new UndoableStringBuilder();
 
     /** This function registers an object that implements the Member interface into
      * our database of clients.
@@ -41,6 +41,10 @@ public class GroupAdmin implements Sender{
             m.update(usbState);
     }
 
+    /** This function appends the specified string to our database of states (UdoableStringBuilder)
+     * and updates each client.
+     * @param obj - A string.
+     */
     @Override
     public void append(String obj) {
         usbState.append(obj);
@@ -49,6 +53,14 @@ public class GroupAdmin implements Sender{
 
     }
 
+    /** This function removes the characters in a substring of our database of states. The substring begins
+     * at the specified start and extends to the character at index
+     * end - 1 or to the end of the sequence if no such character exists.
+     * If start is equal to end, no changes are made.
+     * After that, the function updates each client.
+     * @param start – The beginning index, inclusive.
+     * @param end – The ending index, exclusive.
+     */
     @Override
     public void delete(int start, int end) {
         usbState.delete(start, end);
@@ -56,6 +68,7 @@ public class GroupAdmin implements Sender{
             m.update(usbState);
 
     }
+    /** This function reverts our database of states to the state before the current one.*/
 
     @Override
     public void undo() {

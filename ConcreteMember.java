@@ -13,7 +13,11 @@ public class ConcreteMember implements Member{
 	@Override
 	public void update(UndoableStringBuilder usb) {
 		memState = usb;
-		
+
+	}
+
+	public UndoableStringBuilder getSB() {
+		return memState;
 	}
 
 }

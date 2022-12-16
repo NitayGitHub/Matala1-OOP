@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-/** The GroupAdmin (observable) class contains within it the database of states (UdoableStringBuilder)
+/** The GroupAdmin (observable) class contains within it the database of states (UndoableStringBuilder)
  * and a database of clients (members) who receive updates on any changes made to the database.
  *@author Naor Tzadok & Nitai Levy*/
 public class GroupAdmin implements Sender{
@@ -8,17 +8,19 @@ public class GroupAdmin implements Sender{
     private final UndoableStringBuilder usbState = new UndoableStringBuilder();
 
     /** This function registers an object that implements the Member interface into
-     * our database of clients.
+     * our database of clients. After that, the object updates its UndoableStringBuilder
+     * to point to usbState.
      * @param obj -> The object that will be added to our group.
      */
     @Override
     public void register(Member obj) {
         members.add(obj);
+        obj.update(usbState);
     }
 
     /** This function unregisters an object from
      * our database of clients. This object won't get updates when we change the
-     * group state (UdoableStringBuilder) and its current state (UdoableStringBuilder) will change to null.
+     * group state (UndoableStringBuilder) and its current state (UndoableStringBuilder) will change to null.
      * @param obj -> The object that will be omitted from our group.
      */
     @Override
@@ -29,27 +31,22 @@ public class GroupAdmin implements Sender{
 
     }
 
-    /** This function inserts a string into our database of states (UdoableStringBuilder)
-     * and updates each client.
+    /** This function inserts a string into our database of states (UndoableStringBuilder).
      * @param offset - The offset.
      * @param obj - A string.
      */
     @Override
     public void insert(int offset, String obj) {
         usbState.insert(offset, obj);
-        for (Member m : members)
-            m.update(usbState);
+
     }
 
-    /** This function appends the specified string to our database of states (UdoableStringBuilder)
-     * and updates each client.
+    /** This function appends the specified string to our database of states (UndoableStringBuilder).
      * @param obj - A string.
      */
     @Override
     public void append(String obj) {
         usbState.append(obj);
-        for (Member m : members)
-            m.update(usbState);
 
     }
 
@@ -57,15 +54,12 @@ public class GroupAdmin implements Sender{
      * at the specified start and extends to the character at index
      * end - 1 or to the end of the sequence if no such character exists.
      * If start is equal to end, no changes are made.
-     * After that, the function updates each client.
      * @param start – The beginning index, inclusive.
      * @param end – The ending index, exclusive.
      */
     @Override
     public void delete(int start, int end) {
         usbState.delete(start, end);
-        for (Member m : members)
-            m.update(usbState);
 
     }
     /** This function reverts our database of states to the state before the current one.*/
@@ -73,8 +67,6 @@ public class GroupAdmin implements Sender{
     @Override
     public void undo() {
         usbState.undo();
-        for (Member m : members)
-            m.update(usbState);
 
     }
 

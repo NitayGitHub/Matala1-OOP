@@ -3,6 +3,7 @@ In this assignment, we add more functionality to the UndoableStringBuilder we bu
 
 ## Data Structures
 **GroupAdmin** - The GroupAdmin (observable) class contains within it the database of states (a string sequence) and a list of clients (observers) who receive updates on any changes made to the current state.
+
 Data members:
 1. private final ArrayList<Member> members - A list of objects that implement the Member interface.
 2. private final UndoableStringBuilder usbState - A string sequence with the undo function.
@@ -16,6 +17,7 @@ Fuctions:
 6. undo() - Reverts our string sequence to the state before the current one.
 
 **ConcreteMember** - The ConcreteMember (observer) class contains within it a shallow copy of the UndoableStringBuilder database from the GroupAdmin.
+  
 Data members:
 1. private UndoableStringBuilder memState - A string sequence with the undo function.
 

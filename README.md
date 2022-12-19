@@ -1,6 +1,7 @@
-# Matala1-OOP
+# Matala1-OOP | Naor Tzadok & Nitay Levy
 In this assignment, we add more functionality to the UndoableStringBuilder we built in a previous project.
-##Data Structures
+
+## Data Structures
 GroupAdmin - The GroupAdmin (observable) class contains within it the database of states (a string sequence) and a list of clients who receive updates on any changes made to the current state.
 Fuctions: 
 1. register(Member obj) - Adds an object that implements the Member interface into our list of clients.

@@ -2,7 +2,7 @@
  *@author Naor Tzadok & Nitai Levy*/
 
 public class ConcreteMember implements Member{
-	private UndoableStringBuilder memState;
+	private UndoableStringBuilder memState = null;
 
 	/** Updates the class string sequence to point to the given UndoableStringBuilder parameter.
 	 * If the ConcreteMember was added to a GroupAdmin Class database of clients, the function updates
@@ -13,8 +13,11 @@ public class ConcreteMember implements Member{
 	 */
 	@Override
 	public void update(UndoableStringBuilder usb) {
-		memState = usb;
-
+		if(memState == null || usb == null) {
+			memState = usb;
+		}else{
+			System.out.println("Can't update; member already belong to a GroupAdmin.");
+		}
 	}
 
 	public UndoableStringBuilder getSB() {

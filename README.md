@@ -25,7 +25,10 @@ Fuctions:
 1. update(UndoableStringBuilder usb) -  Updates the class string sequence to point to the given UndoableStringBuilder parameter.
 
 ## JvmUtilities
-The JvmUtilities class contains three static methods: 
-• "objectFootprint" method - shows all the references that the object contains and the size of each reference (including overhead) 
+The JvmUtilities class contains three static methods:
+
+• "objectFootprint" method - shows all the references that the object contains and the size of each reference (including overhead)
+
 • "objectTotalSize" method - shows the total size of the object.
+
 • "jvmInfo" method - displays the process ID of the JVM and the total amount of memory for the benefit of the program.

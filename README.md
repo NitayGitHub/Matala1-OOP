@@ -26,6 +26,6 @@ Fuctions:
 
 ## JvmUtilities
 The JvmUtilities class contains three static methods: 
-1. "objectFootprint" method - shows all the references that the object contains and the size of each reference (including overhead) 
-2. "objectTotalSize" method - shows the total size of the object.
-3. "jvmInfo" method - displays the process ID of the JVM and the total amount of memory for the benefit of the program.
+• "objectFootprint" method - shows all the references that the object contains and the size of each reference (including overhead) 
+• "objectTotalSize" method - shows the total size of the object.
+• "jvmInfo" method - displays the process ID of the JVM and the total amount of memory for the benefit of the program.

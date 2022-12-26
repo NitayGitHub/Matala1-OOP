@@ -7,15 +7,22 @@ public class Tests {
     // stub method to check external dependencies compatibility
     @Test
     public void test(){
-        String s1 = "Alice";
-        String s2 = "Bob";
 
-        logger.info(()->JvmUtilities.objectFootprint(s1));
+        GroupAdmin Sport_News_Group = new GroupAdmin();
+        ConcreteMember Yossi = new ConcreteMember();
+        ConcreteMember Dvid = new ConcreteMember();
+        ConcreteMember Moshe = new ConcreteMember();
 
-        logger.info(()->JvmUtilities.objectFootprint(s1,s2));
 
-        logger.info(()->JvmUtilities.objectTotalSize(s1));
+        logger.info(()-> JvmUtilities.objectTotalSize(Sport_News_Group));
+        System.out.println("This is the total size of a GroupAdmin with 3 Members.\n");
 
-        logger.info(() -> JvmUtilities.jvmInfo());
+        UndoableStringBuilder USB1 = new UndoableStringBuilder();
+        UndoableStringBuilder USB2 = new UndoableStringBuilder();
+        UndoableStringBuilder USB3 = new UndoableStringBuilder();
+
+
+        logger.info(()-> JvmUtilities.objectTotalSize(USB1,USB2,USB3));
+        System.out.println("This is the total size of 3 UndoableStringBuilder.\n");
     }
 }

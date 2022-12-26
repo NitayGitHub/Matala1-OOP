@@ -15,7 +15,7 @@ public class GroupAdmin implements Sender{
     @Override
     public void register(Member obj) {
         members.add(obj);
-        obj.update(usbState);
+
     }
 
     /** This function unregisters an object from
@@ -38,6 +38,9 @@ public class GroupAdmin implements Sender{
     @Override
     public void insert(int offset, String obj) {
         usbState.insert(offset, obj);
+        for(Member m : members){
+            m.update(usbState);
+        }
 
     }
 
@@ -47,6 +50,9 @@ public class GroupAdmin implements Sender{
     @Override
     public void append(String obj) {
         usbState.append(obj);
+        for(Member m : members){
+            m.update(usbState);
+        }
 
     }
 
@@ -60,6 +66,9 @@ public class GroupAdmin implements Sender{
     @Override
     public void delete(int start, int end) {
         usbState.delete(start, end);
+        for(Member m : members){
+            m.update(usbState);
+        }
 
     }
     /** This function reverts our database of states to the state before the current one.*/
@@ -67,6 +76,9 @@ public class GroupAdmin implements Sender{
     @Override
     public void undo() {
         usbState.undo();
+        for(Member m : members){
+            m.update(usbState);
+        }
 
     }
 

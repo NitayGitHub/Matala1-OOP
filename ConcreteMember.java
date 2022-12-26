@@ -13,11 +13,8 @@ public class ConcreteMember implements Member{
 	 */
 	@Override
 	public void update(UndoableStringBuilder usb) {
-		if(memState == null || usb == null) {
 			memState = usb;
-		}else{
-			System.out.println("Can't update; member already belong to a GroupAdmin.");
-		}
+
 	}
 
 	public UndoableStringBuilder getSB() {

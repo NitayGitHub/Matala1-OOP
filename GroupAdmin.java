@@ -7,6 +7,14 @@ public class GroupAdmin implements Sender{
     private final ArrayList<Member> members = new ArrayList<>();
     private final UndoableStringBuilder usbState = new UndoableStringBuilder();
 
+    public int size(){
+        return members.size();
+    }
+
+    public UndoableStringBuilder getUsbState(){
+        return usbState;
+    }
+    
     /** This function registers an object that implements the Member interface into
      * our database of clients. After that, the object updates its UndoableStringBuilder
      * to point to usbState.

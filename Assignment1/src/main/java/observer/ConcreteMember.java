@@ -1,4 +1,4 @@
-package Matala_1;
+package observer;
 
 
 /** The ConcreteMember (observer) class contains within it a shallow copy (memState) of the UndoableStringBuilder database from the GroupAdmin.

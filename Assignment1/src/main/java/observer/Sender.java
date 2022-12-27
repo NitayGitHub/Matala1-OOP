@@ -1,4 +1,4 @@
-package observer;
+package Assignment1.src.main.java.observer;
 
 public interface Sender {
     //methods to register and unregister observers

@@ -1,4 +1,4 @@
-package observer;
+package Assignment1.src.main.java.observer;
 
 
 /** The ConcreteMember (observer) class contains within it a shallow copy (memState) of the UndoableStringBuilder database from the GroupAdmin.
